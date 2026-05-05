@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'EB Garamond', Georgia, serif;
+
+  --color-brand-olive: #444838;
+  --color-brand-charcoal: #181716;
+  --color-brand-gray: #5f6260;
+  --color-brand-sand: #dcd1bf;
+  --color-brand-brown: #4a3a30;
+
+  --color-surface-deep: #0f100e;
+  --color-surface-card: #1a1c18;
+  --color-surface-elevated: #232521;
+  --color-accent: #c4b896;
+  --color-accent-bright: #e8dfc8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--color-brand-sand);
+    background: var(--color-brand-charcoal);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-brand-olive) 70%, white);
+    color: var(--color-brand-charcoal);
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-bright) 0%,
+      var(--color-accent) 45%,
+      color-mix(in oklab, var(--color-brand-sand) 80%, white) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .mesh-bg {
+    background-color: var(--color-brand-charcoal);
+    background-image:
+      radial-gradient(ellipse 120% 80% at 10% -20%, color-mix(in oklab, var(--color-brand-olive) 55%, transparent), transparent 55%),
+      radial-gradient(ellipse 90% 60% at 100% 10%, color-mix(in oklab, var(--color-brand-brown) 45%, transparent), transparent 50%),
+      radial-gradient(ellipse 70% 50% at 50% 100%, color-mix(in oklab, var(--color-brand-gray) 35%, transparent), transparent 55%);
+  }
+}
